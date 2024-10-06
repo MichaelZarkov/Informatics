@@ -1,0 +1,5 @@
+https://learn.fmi.uni-sofia.bg/course/view.php?id=4571
+
+"Записки по дискретна математика и алгоритми.pdf"     |
+"Стефан–Вътев-discrete-math.pdf"                      | -> тези съм ги свалил от горния линк за Мудъл
+"The Zermelo Fraenkel Axioms of Set Theory"           |
