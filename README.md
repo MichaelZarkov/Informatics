@@ -3,4 +3,4 @@
 All materials from the Informatics bachelor's course.
 
 Be mindfull when commiting large files (like pdf text books) because GitHub has a 100BMB file size limit.  
-Also GitHub has a 2GB push limit so if you rename a folder larger than that, commit and push the operation will fail. You have to spilit it up into several smaller commits.
+Note that GitHub has 2GB push limit. Git is smart enough to recognise renaming of folders so renaming large folders doesn't produce large commits, so it is safe to rename folders.
