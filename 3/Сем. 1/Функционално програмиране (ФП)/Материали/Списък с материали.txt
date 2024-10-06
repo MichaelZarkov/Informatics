@@ -1,0 +1,50 @@
+
+Scheme:
+	1. How to Design Programs: An Introduction to Programming and Computing:
+	   https://htdp.org/
+	2. Concrete Abstractions: An Introduction to Computer Science Using SchemeURL:
+	   https://gustavus.edu/academics/departments/mathematics-computer-science-and-statistics/max/concrete-abstractions.html
+	3. The Scheme Programming Language, R. Kent Dybvig: Fourth Edition:
+	   https://www.scheme.com/tspl4/
+	4. Simply Scheme: Introducing Computer Science:
+	   https://people.eecs.berkeley.edu/~bh/ss-toc2.html
+	5. Teach Yourself Scheme in Fixnum DaysURL:
+	   http://ds26gte.github.io/tyscheme/index.html
+	6. Revised⁵ Report on the Algorithmic Language SchemeURL:
+	   https://conservatory.scheme.org/schemers/Documents/Standards/R5RS/HTML/
+	7. How to Indent and Format Scheme:
+	   http://community.schemewiki.org/?scheme-style
+	
+	8. Download DrRacket: https://racket-lang.org/download/
+	   
+Haskell:
+	1. Learn You a Haskell for Great Good!
+	   http://learnyouahaskell.com/
+	2. The Craft of Functional Programming:
+	   https://www.cs.kent.ac.uk/people/staff/sjt/craft2e/
+	3. A Gentle Introduction to Haskell:
+	   https://www.haskell.org/tutorial/
+	4. Haskell on Wikibooks:
+	   https://en.wikibooks.org/wiki/Haskell
+	5. Hoogle: търсачка за Haskell функции:
+	   https://hoogle.haskell.org/
+	6. Haskell Wiki:
+	   https://wiki.haskell.org/Haskell
+	7. Haskell 2010 Language Report:
+	   https://www.haskell.org/onlinereport/haskell2010/
+	8. Използване на Emacs като IDE на Haskell:
+	   https://github.com/serras/emacs-haskell-tutorial/blob/master/tutorial.md
+	9. Списък с възможни IDE на Haskell:
+	   https://wiki.haskell.org/IDEs
+	10.Примери за използване на Haskell в практиката:
+	   https://wiki.haskell.org/Haskell_in_practice
+	   
+	11.Инсталация на GHCup под Windows (видео): https://www.youtube.com/watch?v=bB4fmQiUYPw
+	   
+Other:
+	1. Видеолекции по ФП от доц. д-р Атанас Семерджиев (2020/21):
+	   https://www.youtube.com/playlist?list=PLFMv1QLrQNiQjKiEKeXkCCImsSFS9GIQs
+	2. Записи от лекциите по ФП през 2021/22 г. (достъпни само чрез Google профил към ФМИ):
+	   https://drive.google.com/drive/folders/1-S80kZtGJEt7vuzVlH9Qu1jgyAwoJrZx
+	3. Записи от лекциите по ФП през 2022/23 г. (достъпни само чрез Microsoft профил към ФМИ):
+	   https://unisofiafaculty.sharepoint.com/:f:/s/msteams_1b8271/ElgSa4hpT2hKiRg93d9xwiABNu9ZNU0lMVWWKrdE86LuXw?e=eG9nOF

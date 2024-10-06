@@ -1,0 +1,47 @@
+-- XML
+
+<customer>
+    <custname>
+              <first_name>Crag</first_name>
+              <last_name>Muls</last_name>
+   </custname>
+   <addr country="US">
+              <street>100 Easy St</street>
+              <city>Pittsburgh</city>
+              <state>PA</state>
+              <zip_code>15215</zip_code>
+   </addr>
+   <phone type="work">412-555-1000</phone>
+   <phone type="mobile">972-555-8174</phone>
+</customer>
+
+
+-- XQuerry
+
+-- URL: BaseX desktop
+
+for $i in //customer
+
+where $i/addr/@country = 'US'
+
+order by $i/addr/@country
+
+return $i/custname
+
+-- XPath Examples
+
+-- URL: http://xpather.com/
+
+/customer/custname/first_name
+
+/customer/addr/@country
+
+/customer/custname//text()
+
+/customer/phone[@type="work"]/text()
+
+
+
+-- Import XML for Employees
+
+/data/row[SEX='F']/LASTNAME[../WORKDEPT='C01']

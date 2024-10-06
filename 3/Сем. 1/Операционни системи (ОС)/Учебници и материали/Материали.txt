@@ -1,0 +1,5 @@
+Материали на Скелета: http://skelet.ludost.net/OS/
+
+Записи теория СИ 2021: https://drive.google.com/drive/folders/1YQbwXD-a46O_KBw0x5lYRdcSVXiKeBch
+
+Хранилище със задачи: https://github.com/avelin/fmi-os

@@ -1,0 +1,241 @@
+12.10.2023-------------------------------------------------------------------------
+
+Basic Commands:
+	Notation: [] - optional arguments
+			  <> - required arguments
+
+	mkdir [flag] <name> - make a folder/directory
+	ls [flag] [<name>]  - list
+	cd <name>           - change working directory
+	pwd                 - print working directory
+	touch [flag] <name> - create a file
+	rm [flag] <name>    - delete file
+	rmdir [flag] <name> - delete a directory only of it is empty
+	mv [flag] <src_name> <dest_name> - move a file. This is also used for renaming files
+	cp [flag] <src_name> <dest_name> - copy a file from source to destination
+	find                - powerful command for searching the file system
+	chmod               - change file mode bits
+
+	Integrated program to display manuals/help for the commands: man <command>
+	To search in 'man' type '/'.
+
+Permissions:
+	- Собственик
+	- Групата собственик
+	- Други
+	
+	Права за: четене, писане и изпълнение (read, write, exec). Да науча как точно се кодират.
+	
+19.10.2023-------------------------------------------------------------------------
+
+Да преговоря структурата на файловете.
+
+Команди:
+	unlink - почти няма да я ползваме.
+	ln     - link
+	head   - извежда на екрана малка част от началото на файла
+	tail   - извежда на екрана малка част от края на файла
+	*      - да видя различните значения и употреби
+	>      - output redirection operator. Overwrites.
+	>>     - output redirection operator. Appends to the end.
+	|      - композиция на команди
+	cat    - общо взето извежда на екрана информация за файла
+	sort   - 
+	tr     - translate characters coming from the standard input and directed to the standard output.
+	cut    - позволява ни да избираме само определени колони от текстови файлове.
+	sed    - string editor (с много функции).
+	wc     - извежда някаква статистика за текста, който му е подаден (байтове, символи, редове ...).
+	df     -
+    xxd
+	
+Термини:
+Hardlink - да видя какво точно значи (и разликата със symlink).
+Symlink == shortcut.
+File system mounting (монтиране на файлова система) - да си прочета (под Windows и Linux работят различно).
+Globbing
+Brace expansion
+Redirection
+Pipes
+Ортогоналност на инструментите - това е идеята всеки инструмент, с които разполагаме да прави определено нещо много добре, а 
+не няколко инструмента да правят подобни неща.
+
+Стандартен вход, стандартен изход: това с просто файлове (име върху файловата система) (достатъчно добре е да си мислим, че са файлове)
+Redirection е пренасочване на стандартния вход или изход.
+
+26.10.2023-------------------------------------------------------------------------
+
+Commands: cat, echo (хубавото на echo е, че входът е стандартизиран), grep, less, bc, ascii, gawk, awk, set, vim
+BEGING и END с awk.
+
+$ има различни значения за различните команди.
+
+Да прочета: 'man 7 regex' - за регулярни изрази.
+
+Какво точно прави bash със стринга, който сме му подали?
+
+
+Има разлика между единични и двойни кавички, да я видя.
+
+Да прочета Unicode, UTF-8 стандарта.
+
+02.11.2023-------------------------------------------------------------------------
+
+Bash - всичко в bash е string
+  - променливи
+    - да прочета кои са
+  - специални променливи
+    - да прочета кои са
+	- PATH - това е важна променлива за нас
+
+Команди:
+	info
+	uniq - обикновено винаги ще го ползваме със sort
+	rev
+	
+Регулярни изрази да ги видя.
+
+07.11.2023-------------------------------------------------------------------------
+
+Commands:
+  - ps - флаговете на тази команда имат няколко "стила". Едните започват с тире, другите не
+         и други подобни. Важното е, че съответните команди в различните стилове правят (почти)
+		 едно и също нещо. Затова е силно препоръчително да научим един стил и да си го ползваме
+		 само него без да мешаме стиловете.
+  - xargs
+  - who - общо взето показва кой потребител е логнат.
+  - w - като who, но дава повече информация.
+  - test
+  - eval
+		 
+Процеси в Linux. Какво е процес, как да виждаме какви процеси са стартирани.
+Да прочета за какво се ползват различните директории в Linux.
+Да прочета 'man ps'.
+Да дорешим задачите от хранилището за процеси.
+
+Скриптове:
+  - първият ред от изпълним текстов файл указва кой интерпретатор да се ползва за изпълняването на файла.
+  - циклите в bash буквално итерират през думи. Това е важно да се запомни. Общо взето bash прави много
+    субституции.
+  - да прочета какво точно е bash.
+  
+  
+21.11.2023-------------------------------------------------------------------------
+
+Вградени аритметични конструкции за смятане с числа.
+
+05.12.2023-------------------------------------------------------------------------
+
+Започваме със C.
+
+- системни извиквания
+    - "rings" на операционната система (нещо като нива на достъп). "Kernel space" и "User space".
+    - Ядрото на компютъра има достъп до всичките му ресурси. Ние като потребители (или други програми) нямаме директен достъп
+      до ресурсите; ядрото ни дава достъп. Ние достъпваме ресурси защитени от операционната система чрез системни извиквания.
+    - file descriptor? Някакво число? Можем да достъпваме файла по този начин?
+- създаване на процеси,
+- създаване на тръби.
+- четене и писане във файлове.
+- как ще си компилираме C файловете.
+    - Makefile - това е файл, който конфигурираме за да си компилираме C файловете.
+      От хоум директорията на velin можем да намерим makefile.
+    - с gcc ще компилираме.
+    - Най-вероятно винаги ще ни е нужно да правим само по един C файл за всяка задача.
+- На функцията man може да подаваме аргументи, за да отидем точно там където искаме (примерно при системните извиквания).
+- Нещо за поредността на битовете в байт и байтовете в int как се записват. Дали първо е младшия или старшия (little endien?).
+  Това май само за числа важи (int, double). Това се оказва важно.
+- main arguments.
+    
+SCRIPT
+    #include <unistd.h>
+    
+    int main()
+    {
+        wite(1, "Hello, World!\n", 14);
+        return 0;
+    }
+END SCRIPT
+
+- C команди/системни извиквания:
+    - системните извиквания също май имат man страници.
+    - write - това май е системно извикване.
+    - open - за отваряне на файлове.
+    - errno (някаква глобална променлива?).
+    - err
+    - errx
+    - ще ползваме 'dprintf' вместо 'printf', защото първото очаква file descriptor.
+    - ще ползваме 'dprintf' вместо 'printf', защото първото очаква file descriptor.
+- Linux команди:
+    xxd - ще я ползваме често.
+
+SCRIPT
+    #include <unistd.h>
+    #include <stdio.h>
+    #include <fcntl.h>
+    #include <stdint.h>   // This is for 'uint8_t'.
+    
+    int main(int argc, char** argv)
+    {
+        if (argc != 3)
+        {
+            write (2, "Arg count\n", 10);
+            return -1;
+        }
+        
+        char* source = argv[1];
+        char* destination = argv[2];
+        
+        int fd_source = open(source, O_RDONLY);
+        if (fd_source == -1)
+        {
+            err(1, "Could not open source file");
+        }
+        int fd_destination = open(destination, O_WRONLY | O_CREAT | O_TRUNK, S_IRWXU);
+        if (fd_destination == -1)
+        {
+            err(1, "Could not open destination file");
+        }
+        
+        uint8_t buff;
+        int bytes_read;
+        int bytes_written;
+        
+        while ( (bytes_read = read(fd_source, &buff, sizeof(buff))) )
+        {
+            if (bytes_read == -1)
+            {
+                err(3, "Error reading from source file");
+            }
+            bytes_written = write(fd_destination, &buff, sizeof(buff));
+            if (bytes_written == -1)
+            {
+                err(4, "Error writing to destination file");
+            }
+        }
+        
+        // Not necessary to close but good practice (when the process is terminated the operating system
+        // frees all resources: files, memory and so on).
+        close(fd_source);
+        close(fd_destination);
+        
+        return 0;
+    }
+END SCRIPT
+
+12.12.2023-------------------------------------------------------------------------
+Решавахме задачи от "2.1 Вход и изход" от "os-problems.pdf".
+
+Да видя списък с основните системни извиквания.
+Системни извиквания:
+    open(<file_path>, <flag>, <mode>)
+    read(<file_descriptor>, <address_to_buffer>, <size_in_bytes>)  // Read from file.
+    write(<file_descriptor>, <address_to_buffer>, <size_in_bytes>)  // Write to file.
+    close(<file_descriptor>)
+    err  // Да видя разликата между err и errx
+    errx
+    lseek  // For moving the file offset.
+    unlink(<file_path)  // For "deleting"(unlinking a file name) a file.
+    fstat  // File statistics.
+    
+- file offset; file seeking
+
+
