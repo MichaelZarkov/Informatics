@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Title</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      div {
+        background-color: #70c0ff;
+        height: 150px;
+        margin: 20px;
+        padding: 0;
+        width: 150px;
+      }
+      p {
+        background-color: #dd9090;
+        border: 2px solid black;
+        font-size: 6px;
+        height: 40px;
+        margin: 20px 20px 20px 20px;
+        width: 40px;
+      }
+      .float {
+        float: right;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <p class="float">Floating box - top and bottom margins don't collapse.</p>
+      <p class="float">Floating box - top and bottom margins don't collapse.</p>
+      <p>Non-floating box - top and bottom margins collapse.</p>
+      <p>Non-floating box - top and bottom margins collapse.</p>
+    </div>
+  </body>
+</html>

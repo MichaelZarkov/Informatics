@@ -1,0 +1,75 @@
+* {
+  box-sizing: border-box;
+  font-family: Comic Sans MS, Comic Sans, cursive;
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  font-size: 175%;
+  text-align: center; 
+  margin: 20px;
+}
+
+.container {
+  margin: 15px;
+}
+
+section {
+  background-color: #dfdddd; 
+  border: 1px solid black;
+  margin: 15px;
+}
+
+.section-title {
+  border: 1px solid black;
+  font-size: 125%;
+  position: relative;
+  left: 64.15%;
+  top: -1px;
+  text-align: center;
+  width: 36%;
+}
+
+#title-chicken {
+  background-color: #ffff55
+}
+
+#title-beef {
+  background-color: #ff8888
+}
+
+#title-sushi {
+  background-color: #9c7939;
+  color: white;
+}
+
+p {
+  margin: 15px;
+}
+
+@media (min-width: 992px) {
+  .col-lg-4 {
+    float: left;
+    width: 33%;
+  }
+}
+
+/*
+  You might be seeing a bug where if the width of the browser window is exactly 991px the
+  page is displayed as a single column (like in the mobile view of the webpage). This has to do 
+  with the display scaling in Windows. If you go to Settings > System > Display > Scale & layout > Scale
+  and change Scale to 100% the bug should be fixed.
+*/
+@media (min-width: 768px) and (max-width: 991px) {
+  .col-md-6, .col-md-12 {
+    float: left;
+  }
+  .col-md-6 {
+    width: 50%;
+  }
+  .col-md-12 {
+    width: 100%;
+  }
+}
+

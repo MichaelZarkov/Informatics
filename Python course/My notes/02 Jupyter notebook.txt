@@ -1,0 +1,32 @@
+# The purpose of this file is for quick reference and refresher on basic Python concepts.
+# If not specified, it is considered that the references are for Python version 3.
+
+Jupyter notebook overview:
+  1. Interactive Computing:
+  Jupyter notebooks enable users to write and execute code interactively. This means you can run code cells
+  individually and see the output immediately, fostering an iterative approach to coding and experimentation.
+
+  2. Support for Multiple Languages:
+  While Jupyter was initially developed for Python (hence the name, which stands for Julia, Python, and R), it now
+  supports various programming languages through its kernel system. This flexibility makes Jupyter suitable for various
+  computational tasks and interdisciplinary collaboration.
+
+  3. Rich Output:
+  Jupyter Notebooks support rich media integration, allowing users to generate interactive plots, charts, images, 
+  videos, and more directly within the document. This makes visualizing data, communicating findings, and creating
+  compelling narratives easier.
+
+  4. Integration with Data Science Libraries:
+  Jupyter seamlessly integrates with popular libraries and frameworks used in the data science ecosystem, such as
+  NumPy, Pandas, Matplotlib, sci-kit-learn, TensorFlow, and PyTorch. This allows users to leverage the full power of
+  these tools within the notebook environment for tasks like data manipulation, visualization, machine learning, and
+  deep learning.
+
+  5. Collaboration and Sharing:
+  Jupyter promotes collaboration and reproducibility by allowing users to share their notebooks with others via email,
+  GitHub, or the Jupyter Notebook Viewer. This facilitates knowledge sharing, peer review, and interdisciplinary
+  collaboration, as users can easily exchange ideas, code snippets, and best practices.
+  
+Note:
+  It is actually a pretty useful thing this Jupyter notebook. You insert Markdown text for explanations and then insert
+  code which you can run directly in the text box.

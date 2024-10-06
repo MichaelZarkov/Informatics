@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Flexible Two Column Layout Page.</title>
+    <style>
+      /* 
+        This file is an example how we can make two flexible column layout with CSS.
+        You can uncomment the commented code to see better the outline of the elements.
+      */
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      .column {
+        padding: 15px;
+        text-align: justify;
+        width: 50%;
+      }
+      #column-1 {
+        /* background-color: #30FFFF; */
+        float: left;
+      }
+      #column-2 {
+        /* background-color: #FFFF50; */
+        float: right;
+      }
+      /* div {
+        background-color: #c0c080;
+      } */
+      h1 { 
+        /* background-color: #FF5070; */
+        padding: 15px;
+      }
+      section {
+        /* background-color: #60FF80; */
+        padding: 15px;
+        clear: both;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Main Heading</h1>
+    <div>
+      <p class="column" id="column-1">
+        This is dummy text for the content of the left column:
+        CSS (cascading style sheets) is an extremely powerful tool for styling a webpage. The exact same HTML source document can be styled beyond recognition just 
+        by changing the CSS. We use CSS for the hugely important task - creating the user interface and user experience. Yes, we could just use the raw HTML for our 
+        website but for the average user that would be boring and they'd probably leave our site immediately. One example of the power of CSS is CSS Zen Garden. 
+        People can download the source HTML and provide their own CSS and imagery - so the content is the same just the CSS is different. The plethora of different 
+        looks are available to see and you can also see the CSS behind it.
+      </p>
+      <p class="column" id="column-2">
+        Dummy text for the content of the right column:
+        *A **CSS property** styles an aspect of an HTML element*.  
+        Properties and their values are predefined in the CSS specification so not all HTML elements have the same set of properties. Properties are specified with 
+        name-value pairs like so `property-name: value`. A name-value pair is called a **declaration**. If we have more properties one after the other we have to 
+        separate them with semicolon. 
+      </p>
+      <section>
+        <h2>Conclusion of The Article</h2>
+        <p>
+          Some more dummy text:
+          `box-sizing` - the most important one to understand. By default it is set to `content-box` - this means when we set the `width` or `height` of the box we 
+          actually set the dimension of the **content** part of the box so the padding and border dimensions are counted separately.
+        </p>
+      </section>
+    </div>
+  </body>
+</html>

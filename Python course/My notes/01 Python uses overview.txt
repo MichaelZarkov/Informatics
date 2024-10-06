@@ -1,0 +1,32 @@
+# The purpose of this file is for quick reference and refresher on basic Python concepts.
+# If not specified, it is considered that the references are for Python version 3.
+
+Python's most common uses:
+  1. Data science - working with very large datasets.
+  2. AI and machine learning.
+  3. Web development.
+  4. Internet of things (IoT) with devices like Raspberry Pi.
+  5. Natural language processing.
+  
+Python's standard library provides tools for:
+  1. Databases.
+  2. Web scraping -  the process of using programs to extract content and data from a website.
+  3. Text processing.
+  4. Image processing.
+  5. Machine learning. 
+  6. Data analytics.
+  ... and more.
+  
+Most common libraries:
+  For data science:
+    1. Pandas.
+    2. NumPy.
+    3. SciPy.
+    4. Matplotlib.
+  For AI:
+    1. TensorFlow.
+    2. PyTorch.
+    3. Keras.
+    4. Scikit-learn
+  For natural language processing (NLP):
+    1. Natural Language Toolkit (NLTK).

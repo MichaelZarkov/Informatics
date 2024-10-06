@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>CSS Combining Selectors Example</title>
+    <style>
+      h1 { 
+        color: red; 
+        text-align: center; 
+      }
+      section > h2 {
+        color: green;
+      }
+      h2 {
+        color: red;
+      }
+      section p {
+        color: black;
+        font-size: 14px;
+      }
+      p {
+        color: blue;
+        font-size: 14px;
+      }
+      li {
+        color: green;
+      }
+      ol > li {
+        background-color: yellow;
+      }
+      ul li {
+        background-color: white; 
+      }
+      div.important {
+        background-color: red;
+        font-size: 18px;
+      }
+      .important {
+        background-color: red;
+        font-size: 14px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>I'm The Main Heading of the page (h1)</h1>
+    <section>
+      <h2>Section 1 (h2)</h2>
+      In this section we have the following list:
+      <ol>
+        <li>I'm the first list element.</li>
+        <li>I'm the second list element.</li>
+        <li>I'm the third list element.
+          <ul>
+            <li>sub-element</li>
+            <li>sub-element</li>
+            <li>sub-element</li>
+          </ul>
+        </li>
+        <li>I'm the fourth list element.</li>
+      </ol>
+      <p>I'm a paragraph in a section.</p>
+    </section>
+    <section>
+      <h2>Section 2 (h2)</h2>
+      <p>I'm a paragraph in a section.</p>
+    </section>
+    <section>
+      <h2>Section 3 (h2)</h2>
+      <p>I'm a paragraph in a section.</p>
+    </section>
+    <p>I'm a paragraph outside a section.</p>
+    <h2>I'm a heading outside a section (h2)</h2>
+    <div class="important">
+      I'm in an element from class 'important'.
+      <span class="important">I'm also important but a bit different.</span>
+    </div>
+  </body>
+</html>

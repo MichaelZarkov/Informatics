@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Pseudo-classes examples.</title>
+    <style>
+      a.menu-item:link, a.menu-item:visited {
+        background-color:darkgrey;
+        border: 3px black;
+        color:black;
+        display: block;
+        font-size: 20px;
+        margin-top: 4px;
+        margin-bottom: 4px;
+        text-align: center;
+        text-decoration: none;
+        width: 120px;
+        height: 30px;
+
+        /* Deals with the vertical alignment of the text. */
+        display: flex;
+        justify-content: center;
+        align-content: center;
+        flex-direction: column;
+      }
+      /* Not the best way to do it because the navigation buttons move up and down when you hover over them. */
+      a.menu-item:hover {
+        background-color:cadetblue;
+        font-size: 24px;
+        width: 140px;
+      }
+      a.menu-item:active {
+        color: white;
+      }
+      ul.navigation {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <ul class="navigation">
+        <li class="menu-item"><a title="Link to Google." class="menu-item" href="https://google.com" target="_blank">Google</a></li>
+        <li class="menu-item"><a title="Link to YouTube." class="menu-item" href="https://youtube.com" target="_blank">YouTube</a></li>
+        <li class="menu-item"><a title="Link to uMove." class="menu-item" href="https://umove.bg" target="_blank">uMove</a></li>
+      </ul>
+    </header>  
+  </body>
+</html>
