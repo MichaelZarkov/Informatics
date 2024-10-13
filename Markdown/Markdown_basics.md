@@ -1,19 +1,23 @@
 
 # Markdown Basics
 
-In this document are compiled the main features of Markdown. There are a good amount
+This document compiles the main features of Markdown. There are a good amount
 of explanations so maybe I should make a separate document with only the syntax.
 
 ## To Do
 
 1. Add table of contents.
-2. Learn how images are centered.
+2. Learn how images are centered if possible.
 
 ## Useful Links
 
-[GitHub Flavored Markdown (GFM) docs][gfm-docs]  
-[Basic MD syntax][basic-md-syntax]  
-[Extended MD syntax][extended-md-syntax]
+[GitHub Flavored Markdown (GFM) docs][gfm-docs] - more advanced.  
+[Some GitHub MD tutorials][more-GitHub-MD-docs] - more advanced.  
+[Basic MD syntax][basic-md-syntax] - the basic stuff.  
+[Extended MD syntax][extended-md-syntax] - the basic stuff.
+
+[LaTeX/Mathematics] - language for writing math expressions in plane text.
+See section [Mathematical expressions](#mathematical-expressions) for more info.
 
 ## *Italics* and **Bold**
 
@@ -256,9 +260,20 @@ The <code>&lt;code&gt;</code> tag makes a code block and so on.
 > The <code>&lt;br&gt;</code> tag produces a line break.<br>
 > The <code>&lt;code&gt;</code> tag makes a code block and so on.
 
-Some editors may only support certain tags.
+Some editors may only support certain tags. With that in mind here are some useful tags in 
+alphabetic order which should be supported on most processors (including GitHub):
+- `<sub>` - subscript text: <sub>this is a subscript</sub>,  A<sub>1</sub>, A<sub>2</sub>
+- `<sup>` - superscript text: <sup>this is superscript</sup>, A<sup>1</sup>, A<sup>2</sup>
 
-## Temp
+## Mathematical expressions
+
+[Mathematical expressions tutorial][MD-math-expressions]
+
+
+
+
+# The End
+
 
 
 [basic-md-syntax]: https://www.markdownguide.org/basic-syntax/
@@ -267,3 +282,6 @@ Some editors may only support certain tags.
 [extended-md-syntax]: https://www.markdownguide.org/extended-syntax/
 [gfm-docs]: https://github.github.com/gfm/ "GitHub Flavored Markdown docs."
 [google]: https://www.google.com/ "The best search engine on the planet."
+[LaTeX/Mathematics]: https://en.wikibooks.org/wiki/LaTeX/Mathematics "Language for writing mathematical expressions in plane text."
+[MD-math-expressions]: https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/writing-mathematical-expressions
+[more-GitHub-MD-docs]: https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/quickstart-for-writing-on-github
