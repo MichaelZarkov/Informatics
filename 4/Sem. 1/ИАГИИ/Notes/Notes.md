@@ -69,3 +69,8 @@ Logistic regression разгледахме.
 ### Support Vector Machines (SVM)
 
 - Kernel trick
+
+Да обърнем най-много внимание на:
+- Bias-variance tradeoff.
+- Норми (различните метрики).
+- Feature selection методи.
