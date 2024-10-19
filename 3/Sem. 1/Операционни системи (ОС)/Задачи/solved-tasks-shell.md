@@ -338,6 +338,7 @@ awk '{ sum+= $2 + $3 } END { print sum }' emp.data
 **Зад. 16:** Намерете само Group ID-то си от файлa `/etc/passwd`.
 ```bash
 grep "^s45655" /etc/passwd | cut -d":" -f 4
+# 's45655' е потребителското ми име.
 ```
 
 **Зад. 17:** Колко коментара има във файла `/etc/services`? Коментарите се маркират със символа `#`,
@@ -396,187 +397,208 @@ find / -maxdepth 3 -false 2>&1 | cut -d" " -f 2 | cut -d":" -f 1
 ```bash
 wc -l -w -m file1 file2 file3 | head -n 3  # 1.
 wc -l -m file1 file2 file3 | tail -n 1  # 2.
-wc -l $(ls ~/dir5) | tail -n 1 # 3.
+wc -l $(ls ~/dir5) | tail -n 1  # 3.
 ```
 
-# Задача 21:
-# Във file2 (inplace) подменете всички малки букви с главни.
-    printf "$(awk '{ print toupper($0) }' file2)" > file2
-    # Това изглежда доста грозно.
-    # Мисля, че със 'sed' може да се направи "по-хубаво".
+**Зад. 21:** Във `file2` (inplace) подменете всички малки букви с главни.
+```bash
+printf "$(awk '{ print toupper($0) }' file2)" > file2
+# Това изглежда доста грозно. Мисля, че със 'sed' може да се направи "по-хубаво".
+```
 
-# Задача 22:
-# Във file3 (inplace) изтрийте всички "1"-ци.
-    sed 's/1//' -i file3 
+**Зад. 22:** Във `file3` (inplace) изтрийте всички "1"-ци.
+```bash
+sed 's/1//' -i file3 
+```
 
-# Задача 23:
-# Изведете статистика за най-често срещаните символи в трите файла.
-    cd ~/dir5;
-    for i in {33..126};  # For each printable character.
-    do
-        toChar=$(printf %b $(printf "\%o" $i));           # Convert 'i' to char.
-        count=$(cat $(ls) | tr -c -d "$toChar" | wc -c);  # Count the occurrences of 'toChar' in all 3 files.
-        if [ "$toChar" == "*" ]; then  # The space between [ and " is mandatory!
-            printf "* %d\n" $count;    # Print * separately because it has special meaning.
-        else 
-            printf "%c %d\n" $toChar $count;
-        fi
-    done
+**Зад. 23:** Изведете статистика за най-често срещаните символи в трите файла.
+```bash
+cd ~/dir5;
+for i in {33..126};  # For each printable character.
+do
+    toChar=$(printf %b $(printf "\%o" $i));           # Convert 'i' to char.
+    count=$(cat $(ls) | tr -c -d "$toChar" | wc -c);  # Count the occurrences of 'toChar' in all 3 files.
+    if [ "$toChar" == "*" ]; then  # The space between [ and " is mandatory!
+        printf "* %d\n" $count;    # Print * separately because it has special meaning.
+    else 
+        printf "%c %d\n" $toChar $count;
+    fi
+done
+```
 
-# Задача 24:
-# Направете нов файл с име по ваш избор, чието съдържание е конкатенирани съдържанията на file{1,2,3}.
-    cd ~/dir5; cat $(ls) > fileConcat
-    
-# Задача 25:
-# Прочетете текстов файл file1 и направете всички главни букви малки като запишете резултата във file2.
-    printf "$(awk '{ print tolower($0) }' file1)" > file2
-    
-# Задача 25:
-# Намерете броя на символите, различни от буквата 'а' във файла /etc/passwd. 
-    tr -d 'a' < /etc/passwd | wc -c
-    
-# Задача 26:
-# Намерете броя на уникалните символи, използвани в имената на потребителите от /etc/passwd.
-# Забележка: приемам,че това означава да изброим колко различни символа се срещат в потребителските имена. 
-# На пример, ако имаме имената "Иван София Мария", различните символи ще са 'ивансофямр' и значи броят им 
-# ще е 10. 
-    cut -d':' -f 1 /etc/passwd | fold -w 1 | sort | tr -d '\n' | tr -s -c '' | wc -c
-    # Това сигурно може и по-четимо да се направи.
-    # 1. Отделяме само потребителските имена от /etc/passwd.
-    # 2. Правим така, че всеки символ да е на нов ред.
-    # 3. Сортираме редовете (в случая символите).
-    # 4. Махаме новите редове.
-    # 5. Махаме повторенията (те., ако имаме "mmnnnpp" става "mnp").
-    # 6. Броим кои символи са останали и това е нашият отговор.
-   
-# Задача 27:
-# Отпечатайте всички редове на файла /etc/passwd, които не съдържат символния низ 'ов'.
-    grep -v 'ов' /etc/passwd 
-    
-# Задача 28:
-# Отпечатайте последната цифра на UID на всички редове между 28-ми и 46-ред в /etc/passwd.
-    awk -F ':' '28 <= FNR && FNR <= 46 { print ($3 % 10) }' /etc/passwd
+**Зад. 24:** Направете нов файл с име по ваш избор, чието съдържание е конкатенирани съдържанията
+на `file{1,2,3}`.
+```bash
+cd ~/dir5; cat $(ls) > fileConcat
+```
 
-# Задача 29:
-# Отпечатайте правата (permissions) и имената на всички файлове, до които имате read достъп, намиращи се в
-# директорията /tmp (hint: 'man find', вижте -readable).
-    find /tmp -mindepth 1 -maxdepth 1 -readable -printf "%M %f\n"
-    # Интересно, че като го пуснах нямаше файлове с read достъп.
-    # %M печата правата, %f печата името.
+**Зад. 25:** Прочетете текстов файл `file1` и направете всички главни букви малки като запишете
+резултата във `file2`.
+```bash
+printf "$(awk '{ print tolower($0) }' file1)" > file2
+```
     
-# Задача 30:
-# Намерете имената на 10-те файла във вашата home директория, чието съдържание е редактирано най-скоро. На
-# първо място трябва да бъде най-скоро редактираният файл. Намерете 10-те най-скоро достъпени файлове.
-# (hint: Unix time)
-    find ~ -mindepth 1 -printf "%T@ %p\n" | sort -k 1 -n -r | head | cut -f 2 -d' '  # recently edited
-    find ~ -mindepth 1 -printf "%A@ %p\n" | sort -k 1 -n -r | head | cut -f 2 -d' '  # recently accessed
-    # Извеждаме на стандартния изход съответно времето на последна/ен редакция/достъп и сортираме по него.
+**Зад. 25:** Намерете броя на символите, различни от буквата `а` във файла `/etc/passwd`.
+```bash 
+tr -d 'a' < /etc/passwd | wc -c
+```
 
-# Задача 30:
-# Да приемем, че файловете, които съдържат C код, завършват на `.c` или `.h`. Колко на брой са те в
-# директорията `/usr/include`? Колко реда C код има в тези файлове?
-    ls /usr/include | awk '/\.c$/ || /\.h$/ { ++count } END { print count }'      # брой файлове
-    cd /usr/include; wc -l $(ls /usr/include | awk '/\.c$/ || /\.h$/ { print }')  # брой редове
-      
-# Задача 31: 
-# Даден ви е ASCII текстов файл - /etc/services. Отпечатайте хистограма на 10-те най-често срещани думи.
-# Дума наричаме непразна последователност от букви. Не правим разлика между главни и малки букви.
-# Хистограма наричаме поредица от редове, всеки от които има вида:
-# <брой срещания> <какво се среща толкова пъти>
-    # backslash казва на bash, че командата продължава на другия ред.
-    # Какво точно правим:
-    # 1. С grep изваждаме само думите от файла.
-    # 2. Правим всички букви на малки и сортираме.
-    # 3. С awk броим срещанията на всяка дума.
-    # 4. Сортираме по броя на срещанията.
-    grep -E -o '[a-zA-Z]+' /etc/services | awk '{ print tolower($0) }' | sort | \
-    awk \
-    '{                                                   
-        if (prevWord == $0)
-            ++count;
-        else {
-            if (count != 0)
-                print count, prevWord;
-            count=1;
-            prevWord=$0;
-        }
+**Зад. 26:** Намерете броя на уникалните символи, използвани в имената на потребителите от `/etc/passwd`.  
+Забележка: приемам,че това означава да изброим колко различни символа се срещат в потребителските имена. 
+На пример, ако имаме имената "Иван София Мария", различните символи ще са 'ивансофямр' и значи броят им 
+ще е 10.
+```bash 
+cut -d':' -f 1 /etc/passwd | fold -w 1 | sort | tr -d '\n' | tr -s -c '' | wc -c
+# Това сигурно може и по-четимо да се направи.
+# 1. Отделяме само потребителските имена от '/etc/passwd'.
+# 2. Правим така, че всеки символ да е на нов ред.
+# 3. Сортираме редовете (в случая символите).
+# 4. Махаме новите редове.
+# 5. Махаме повторенията (те., ако имаме "mmnnnpp" става "mnp").
+# 6. Броим кои символи са останали и това е нашият отговор.
+```
+
+**Зад. 27:** Отпечатайте всички редове на файла `/etc/passwd`, които не съдържат символния низ `ов`.
+```bash
+grep -v 'ов' /etc/passwd 
+```
+
+**Зад. 28:** Отпечатайте последната цифра на UID на всички редове между 28-ми и 46-ред в `/etc/passwd`.
+```bash
+awk -F ':' '28 <= FNR && FNR <= 46 { print ($3 % 10) }' /etc/passwd
+```
+
+**Зад. 29:** Отпечатайте правата (permissions) и имената на всички файлове, до които имате read достъп,
+намиращи се в директорията `/tmp` (hint: `man find`, вижте `-readable`).
+```bash
+find /tmp -mindepth 1 -maxdepth 1 -readable -printf "%M %f\n"
+# Интересно, че като го пуснах нямаше файлове с read достъп.
+# %M печата правата, %f печата името.
+```
+
+**Зад. 30:** Намерете имената на 10-те файла във вашата home директория, чието съдържание е редактирано
+най-скоро. На първо място трябва да бъде най-скоро редактираният файл. Намерете 10-те най-скоро
+достъпени файла.(hint: Unix time)
+```bash
+find ~ -mindepth 1 -printf "%T@ %p\n" | sort -k 1 -n -r | head | cut -f 2 -d' '  # recently edited
+find ~ -mindepth 1 -printf "%A@ %p\n" | sort -k 1 -n -r | head | cut -f 2 -d' '  # recently accessed
+# Извеждаме на стандартния изход съответно времето на последна/ен редакция/достъп и сортираме по него.
+```
+
+**Зад. 30:** Да приемем, че файловете, които съдържат **C** код, завършват на `.c` или `.h`.
+Колко на брой са те в директорията `/usr/include`? Колко реда **C** код има в тези файлове?
+```bash
+ls /usr/include | awk '/\.c$/ || /\.h$/ { ++count } END { print count }'      # брой файлове
+cd /usr/include; wc -l $(ls /usr/include | awk '/\.c$/ || /\.h$/ { print }')  # брой редове
+```
+
+**Зад. 31:** Даден ви е ASCII текстов файл - `/etc/services`. Отпечатайте хистограма на 10-те най-често
+срещани думи. Дума наричаме непразна последователност от букви. Не правим разлика между главни и малки
+букви. Хистограма наричаме поредица от редове, всеки от които има вида:
+<брой срещания> <какво се среща толкова пъти>.
+```bash
+# backslash казва на bash, че командата продължава на другия ред.
+# Какво точно правим:
+# 1. С grep изваждаме само думите от файла.
+# 2. Правим всички букви на малки и сортираме.
+# 3. С awk броим срещанията на всяка дума.
+# 4. Сортираме по броя на срещанията.
+grep -E -o '[a-zA-Z]+' /etc/services | awk '{ print tolower($0) }' | sort | \
+awk \
+'{                                                   
+    if (prevWord == $0)
+        ++count;
+    else {
+        if (count != 0)
+            print count, prevWord;
+        count=1;
+        prevWord=$0;
     }
-    END { print count, prevWord; }' | \
-    sort -k 1 -n -r | head
-    
-# Задача 32:
-# Вземете факултетните номера на студентите (описани във файла <РЕПО>/exercises/data/mypasswd.txt)
-# от СИ и ги запишете във файл si.txt сортирани.
-# Студент е част от СИ, ако home директорията на този потребител (според <РЕПО>/exercises/data/mypasswd.txt)
-# се намира в /home/SI директорията.
-    # Изтегли файла.
-    wget https://raw.githubusercontent.com/avelin/fmi-os/master/exercises/data/mypasswd.txt
-    # Направи нужните трансформации.
-    cut -f6 -d':' mypasswd.txt | cut -f3,4 -d'/' | grep -E '^SI/s[0-9]+' | cut -f2 -d's' | sort -n > si.txt
+}
+END { print count, prevWord; }' | \
+sort -k 1 -n -r | head
+```
+Забележка: Тая команда с всичките нови редове изглежда, че няма да работи, но би трябвало просто 
+copy-paste в терминала и всичко да е точно. Това се отнася и за други команди, които са така зловещо
+изглеждащи.
 
-# Задача 32:
-# За всяка група от /etc/group изпишете "Hello, <група>", като ако това е вашата група,
-# напишете "Hello, <група> - I am here!".
-    myGroupName=$(groups s45655 | cut -f3 -d' ') \
-    awk -F: \
-    'BEGIN {
-        cmd = "echo $myGroupName";
-        cmd | getline grName;
-        close(cmd);
-    }
-    {
-        if (grName == $1) print "Hello,", $1, "- I am here!";
-        else              print "Hello,", $1;
-    }' /etc/group
+**Зад. 32:** Вземете факултетните номера на студентите (описани във файла `<РЕПО>/exercises/data/mypasswd.txt`)
+от СИ и ги запишете във файл `si.txt` сортирани. Студент е част от СИ, ако home директорията на този
+потребител (според `<РЕПО>/exercises/data/mypasswd.txt`) се намира в `/home/SI` директорията.
+```bash
+# Изтегли файла.
+wget https://raw.githubusercontent.com/avelin/fmi-os/master/exercises/data/mypasswd.txt
+# Направи нужните трансформации.
+cut -f6 -d':' mypasswd.txt | cut -f3,4 -d'/' | grep -E '^SI/s[0-9]+' | cut -f2 -d's' | sort -n > si.txt
+```
 
-# Задача 33:
-# Shell Script-овете са файлове, които по конвенция имат разширение .sh. Всеки такъв файл започва с
-# "#!<interpreter>" , където <interpreter> указва на операционната система какъв интерпретатор да пусне
-# (пр: "#!/bin/bash", "#!/usr/bin/python3 -u").
-#
-# Намерете всички .sh файлове в директорията `/usr` и нейните поддиректории, и
-# проверете кой е най-често използваният интерпретатор.
-    # Това е bash script.
-        #!/bin/bash
+**Зад. 32:** За всяка група от `/etc/group` изпишете "Hello, <група>", като ако това е вашата група,
+напишете "Hello, <група> - I am here!".
+```bash
+myGroupName=$(groups s45655 | cut -f3 -d' ') \
+awk -F: \
+'BEGIN {
+    cmd = "echo $myGroupName";
+    cmd | getline grName;
+    close(cmd);
+}
+{
+    if (grName == $1) print "Hello,", $1, "- I am here!";
+    else              print "Hello,", $1;
+}' /etc/group
+```
 
-        interpreters="$(head -q -n 1 $(find /usr -mindepth 1 -type f -regex ".*\.sh") | \
-                      grep "^#!" | tr -d "#!" | sed "s/ *//";)";
+**Зад. 33:** Shell Script-овете са файлове, които по конвенция имат разширение `.sh`. Всеки такъв файл
+започва с `#!<interpreter>` , където `<interpreter>` указва на операционната система какъв интерпретатор
+да пусне (пр: `#!/bin/bash`, `#!/usr/bin/python3 -u`).
+Намерете всички `.sh` файлове в директорията `/usr` и нейните поддиректории, и проверете кой е
+най-често използваният интерпретатор.
+```bash
+#!/bin/bash
 
-        declare -A intrpCnt;  # Асоциативен списък.
+interpreters="$(head -q -n 1 $(find /usr -mindepth 1 -type f -regex ".*\.sh") | \
+                grep "^#!" | tr -d "#!" | sed "s/ *//";)";
 
-        while read line;
-        do
-            intrpCnt["$line"]=$(( intrpCnt["$line"]+=1 ))
-        done <<< $interpreters
+declare -A intrpCnt;  # Асоциативен списък.
 
-        for key in "${!intrpCnt[@]}"
-        do
-            echo "Interpreter: $key | Number of users: ${intrpCnt[$key]}";
-        done
+while read line;
+do
+    intrpCnt["$line"]=$(( intrpCnt["$line"]+=1 ))
+done <<< $interpreters
 
-    # За тестване. Трябва сборът от върнатите бройки да е равен на общия брой.
-    # Връща общия брой shell скриптове.
-    head -q -n 1 $(find /usr -mindepth 1 -type f -regex ".*\.sh") | grep "^#!" | wc -l
+for key in "${!intrpCnt[@]}"
+do
+    echo "Interpreter: $key | Number of users: ${intrpCnt[$key]}";
+done
+```
+```bash
+# За тестване. Трябва сборът от върнатите бройки да е равен на общия брой.
+# Връща общия брой shell скриптове.
+head -q -n 1 $(find /usr -mindepth 1 -type f -regex ".*\.sh") | grep "^#!" | wc -l
+```
 
-# Задача 34:
-# 1. Изведете GID-овете на 5-те най-големи групи спрямо броя потребители, за които съответната група е
-# основна (primary).
-# 2. (*) Изведете имената на съответните групи.
-# Hint: /etc/passwd, man 5 passwd
-    # 1.
-        #!/bin/bash
-        GIDs="$(cut -f4 -d':' /etc/passwd)";
-        declare -A arrGIDcounts;
-        while read line;
-        do
-                arrGIDcounts["$line"]=$(( arrGIDcounts["$line"] + 1 ))
-        done <<< $GIDs
+**Зад. 34:** 
+1. Изведете GID-овете на 5-те най-големи групи спрямо броя потребители, за които съответната група е
+   основна (primary).
+2. (*) Изведете имената на съответните групи.
 
-        for key in "${!arrGIDcounts[@]}"
-        do
-                GIDcounts+=$(echo "Group $key|User_count ${arrGIDcounts[$key]}\n");
-        done
+Hint: `/etc/passwd`, `man 5 passwd`.
 
-        printf "$GIDcounts" | sort -r -d -t' ' -k3 | head -n5
-    # 2.
+Скрипт за 1.
+```bash    
+#!/bin/bash
+GIDs="$(cut -f4 -d':' /etc/passwd)";
+declare -A arrGIDcounts;
+while read line;
+do
+        arrGIDcounts["$line"]=$(( arrGIDcounts["$line"] + 1 ))
+done <<< $GIDs
+
+for key in "${!arrGIDcounts[@]}"
+do
+        GIDcounts+=$(echo "Group $key|User_count ${arrGIDcounts[$key]}\n");
+done
+
+printf "$GIDcounts" | sort -r -d -t' ' -k3 | head -n5
+```
     
