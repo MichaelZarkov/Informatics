@@ -1,4 +1,8 @@
-# Уводни записки
+# Груби записки по лекциите
+
+Мои записките по лекциите на специалност Софтуерно инженерство по Операционни системи. Лекциите евентуално може да намериш в [този][OS-SI-lectures] драйв.
+
+Това са записки в много груб вид - т.е. гледам лекцията и в реално време нахвърлям важните неща, които казва Скелета. Синтезирания вариант на цялата информация тук (ако съм имал врема да синтезирам всичко, разбира се) може да намериш в [Notes-main.md].
 
 ## Лекция 1
 
@@ -96,6 +100,10 @@
 [GNU-C-tutorial]: https://skelet.ludost.net/OS/misc/GNU_tutorials/GNU_c_tutorial.pdf "Хубав учебник за C частта от курса."
 
 [IO-redirection-and-pipes]: https://homepages.uc.edu/~thomam/Intro_Unix_Text/IO_Redir_Pipes.html
+
+[Notes-main.md]: Notes-main.md "Синтезираните записки от тези лекции."
+
+[OS-SI-lectures]: https://drive.google.com/drive/folders/1YQbwXD-a46O_KBw0x5lYRdcSVXiKeBch
 
 [Unix-haters-handbook]: ../Учебници%20и%20материали/The%20Unix-haters%20Handbook.pdf "Хумористично четиво."
 
